@@ -1,0 +1,139 @@
+.top-buffer { margin-top:10px; }
+
+h2 {
+  font: 400 50px/1.3 'Arizonia', Helvetica, sans-serif;
+  color: white;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.1); 
+}
+
+body {
+  /*background-color: #457E86;*/
+  background: url("http://cdn.paper4pc.com/images/wood-boards-wallpaper-1.jpg");
+}
+
+#upvotes{
+margin-left:20px;
+}
+
+p{
+ color: black;
+}
+
+span{
+  color:black;
+  align:right;
+}
+
+.newsWindow1{
+border:solid;
+border-radius: 20px;
+background: #d3d3d3;
+}
+
+
+
+.article{
+  border:solid;
+  border-color:#654321;
+  border-radius:10px;
+  background: #d3d3d3;
+  padding: 10px;
+  min-height: 365px;
+  min-width: 125px;
+} 
+
+.textContentMain{
+  margin-left: 15px;
+} 
+
+#img0{
+  border-radius: 1em;
+  float:left;
+}
+#newsContent{
+  float:right;
+}
+
+
+a:active {
+    color: black;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #330000;
+}
+
+.mastercontainer, .container{
+  width: 75%;
+  align: center;
+}
+
+.ImageGen{
+    width:100%;
+    max-width:20px;
+}
+
+.title, #title0{
+ font-weight: bold;
+ font-family: 'Lekton', Helvetica, Arial, sans-serif;
+ font-size: 16px;
+ line-height: 25px;
+}
+
+.date {
+  font-style: italic;
+}
+
+#author{
+  color:purple;
+}
+
+.row.borders{
+    display: inline-flex;
+    width: 100%;
+}
+
+.artIMG{
+  padding:10px;
+}
+
+/* Addding the pin */
+.pin {
+	background-color: #999;
+	background-image: linear-gradient(left, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+	display: block;
+	height: 1.5em;
+	left: 55%;
+	margin: -1em -.05em;
+	position: absolute;
+	top: 2%;
+	width: .2em;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(44deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.pin:after {
+	background-color: #E74C3C;
+	background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.8), hsla(0,0%,0%,.8));
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
+	    inset .2em .2em .2em hsla(0,0%,100%,.3),
+	    inset -.2em -.2em .2em hsla(0,0%,0%,.3);
+	content: '';
+	height: 1em;
+	left: -.47em;
+	position: absolute;
+	top: -.57em;
+	width: 1em;
+}
+
