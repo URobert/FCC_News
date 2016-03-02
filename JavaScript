@@ -1,0 +1,84 @@
+var myJson;
+
+$(document).ready(function() {
+var i=0;  var j = 4; 
+var imgLink;
+var fccNewsAPI = "http://www.freecodecamp.com/news/hot";
+  
+    
+$.getJSON(fccNewsAPI, function (json){
+                                        // ARTICLES 1 -3 
+myJson = json;  
+  
+for (i = 0; i < 1 ; i++)  {
+     if ((json[i]).image){
+          imgLink =(json[i]).image;
+    }else{
+          imgLink =(json[i]).author.picture;
+    }
+    $("#img"+i).attr("src",imgLink);
+    $("#title"+i).html((json)[i].headline);
+    $("#artLink"+i).attr("href",(json)[i].link);
+    $("#author"+i).html("by:" + " " +(json)[i].author.username);
+    $("#art1Author"+i).attr("href","http://www.freecodecamp.com/" + (json)[i].author.username);
+    $("#upvotes"+i).html("Upvotes:"+" "+ (json[i]).rank);
+    $("#artTimePosted"+i).html("Posted on:" + " "+ theTime((json)[i].timePosted));
+} //end of for loop   // end of generating the first 4 elements
+  $(".continue").append(createNews(myJson));
+ });  // end of getJSON
+}); //end of ready
+
+
+
+function createNews(array){
+  //array = array.splice(1,array.length);
+  //above line was for when I used a separate main article
+  var html=""; var img=""; 
+   for (var i = 0; i <= array.length - 1; i++) {
+      var news = array[i]; 
+
+      if (news.image) {
+          img = '<img class="img-responsive artIMG" src="' + news.image + '">';
+      }else{
+          img ='<img class="img-responsive artIMG" src="' + news.author.picture + '">';
+    }
+     
+     html += ' <div class ="top-buffer"></div>';
+     html += ' <div class= "col-md-2 col-lg-2">';
+     html += ' <div class= "article"> ';
+     html += ' <a target="_blank" class="title" href="' + news.link + '">' + news.headline + '</a>';
+     html += '<i class="pin"></i>'
+     html += ' <a target="_blank" class="ImageGen" href="' + news.link + '">' + img + '</a>';
+     html += ' <span>by: <a id="author" target="_blank" href="http://www.freecodecamp.com/' + news.author.username + '">'  + news.author.username + "</a></span>";
+     html += ' <span id="upvotes">Upvotes:' + news.rank + '</span>';
+     html += ' <p id="artTimePosted" class="date">Posted on: ' + theTime(news.timePosted) + '</p>';
+     html += ' </div><!-- article -->'; 
+     html += '<div class="clearfix"></div>';
+     html += ' </div><!-- col -->';
+     html += ' </div><!-- end of continue-->';
+     
+     // ClearFix for columns
+     if ((i + 1) % 3 == 0) {
+        html += '<div class="clearfix visible-sm-block"></div>';
+      } 
+      if ((i + 1) % 4 == 0) {
+        html += '<div class="clearfix visible-md-block"></div>';
+      } 
+      if ((i + 1) % 6 == 0) {
+        html += '<div class="clearfix visible-lg-block"></div>';
+      }
+     
+   } return html;
+}
+
+function theTime(time){
+var corectTime = new Date(time);
+ var dd = corectTime.getDate(); 
+  var mm = corectTime.getMonth()+1;
+  var yyyy = corectTime.getFullYear();  
+  return dd + "."+ mm + "."+ yyyy;
+//return corectTime.toString();
+}
+
+
+
